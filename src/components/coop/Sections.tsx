@@ -53,8 +53,9 @@ export function Hero() {
         </Reveal>
         <Reveal delay={200}>
           <p className="mx-auto mt-5 max-w-2xl text-center text-base text-ink-soft/80 md:text-lg">
-            La plataforma digital que acompaña a cada cooperativa de Misiones a lo largo de todo su
-            ciclo de vida: incubación, formalización, capacitación, financiamiento y transformación.
+            La propuesta de plataforma digital para acompañar a cada cooperativa de Misiones a lo
+            largo de todo su ciclo de vida: incubación, formalización, capacitación, financiamiento
+            y transformación.
           </p>
         </Reveal>
         <Reveal delay={280}>
@@ -112,10 +113,10 @@ export function Hero() {
         <Reveal delay={420}>
           <div className="mt-14 grid grid-cols-2 gap-4 border-t border-border/60 pt-8 md:grid-cols-4">
             {[
-              ["1.284", "Cooperativas activas"],
-              ["78", "Municipios integrados"],
-              ["15", "Módulos digitales"],
-              ["100 %", "Trazabilidad de expedientes"],
+              ["79", "Municipios de la provincia"],
+              ["11", "Piezas del ecosistema"],
+              ["15", "Módulos propuestos"],
+              ["5", "Fases de implementación"],
             ].map(([v, l]) => (
               <div key={l} className="text-center md:text-left">
                 <div className="text-2xl font-semibold tracking-tight text-ink md:text-3xl">
@@ -252,7 +253,7 @@ export function Vision() {
                   {
                     icon: ShieldCheck,
                     t: "Institucional",
-                    d: "Diseñado bajo los estándares del Gobierno de Misiones.",
+                    d: "Pensado bajo los estándares del Gobierno de Misiones.",
                   },
                   { icon: Zap, t: "Ágil", d: "Trámites en minutos, no en meses." },
                   { icon: Radar, t: "Transparente", d: "Todo trazable, todo auditable." },
@@ -735,9 +736,9 @@ export function IA() {
                 <span className="text-gradient-brand">entiende de cooperativismo</span>.
               </h2>
               <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
-                No es un chatbot genérico. Está entrenado sobre la normativa provincial, el padrón
-                cooperativo y la biblioteca del Ministerio para asistir a ciudadanos y funcionarios
-                por igual.
+                No es un chatbot genérico: la propuesta es entrenarlo sobre la normativa provincial,
+                el padrón cooperativo y la biblioteca del Ministerio, para asistir a ciudadanos y
+                funcionarios por igual.
               </p>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {[
@@ -836,13 +837,20 @@ export function IA() {
 /* ============================== FLOW ============================== */
 export function Flow() {
   const steps = [
-    { t: "Idea", d: "Un grupo se acerca con una necesidad económica compartida." },
-    { t: "Incubadora", d: "Diagnóstico, formación y armado del plan de negocios." },
-    { t: "Evaluación", d: "Mentores y equipo técnico validan viabilidad." },
-    { t: "Constitución", d: "Trámite digital, estatuto y matrícula provincial." },
-    { t: "Subsidio", d: "Postulación a convocatorias y financiamiento inicial." },
-    { t: "Seguimiento", d: "Indicadores vivos, mentoría continua y reportes." },
-    { t: "Graduación", d: "Cooperativa activa, sostenible y con impacto medible." },
+    {
+      t: "Idea",
+      d: "Un grupo se acerca con una necesidad económica compartida.",
+      icon: Lightbulb,
+    },
+    { t: "Portal", d: "Ingresa con su identidad digital provincial.", icon: Building2 },
+    { t: "Incubadora", d: "Diagnóstico automatizado y plan de negocios.", icon: Sprout },
+    { t: "Mentoría", d: "Un referente de la red acompaña cada etapa.", icon: Users },
+    { t: "Evaluación", d: "El equipo técnico valida viabilidad.", icon: ScanSearch },
+    { t: "Constitución", d: "Estatuto, matrícula y firma digital.", icon: FolderKanban },
+    { t: "Capacitación", d: "Ruta formativa según sector y etapa.", icon: GraduationCap },
+    { t: "Subsidio", d: "Postulación y evaluación colegiada.", icon: Coins },
+    { t: "Seguimiento", d: "Indicadores vivos y mentoría continua.", icon: Gauge },
+    { t: "Graduación", d: "Activa, visible en el Mapa y el Observatorio.", icon: Sparkles },
   ];
   return (
     <section className="relative py-28">
@@ -857,47 +865,57 @@ export function Flow() {
         </Reveal>
         <Reveal delay={140}>
           <p className="mt-5 max-w-2xl text-lg text-ink-soft">
-            Un mismo hilo digital conecta cada paso. Nada se pierde, todo se puede medir.
+            Diez pasos dentro de la plataforma, cada uno resuelto por un módulo distinto. Nada se
+            pierde, todo se puede medir.
           </p>
         </Reveal>
 
-        <div className="relative mt-16">
-          <svg
-            className="pointer-events-none absolute left-0 right-0 top-8 hidden h-10 w-full md:block"
-            viewBox="0 0 1000 40"
-            preserveAspectRatio="none"
-          >
-            <defs>
-              <linearGradient id="flow" x1="0" x2="1">
-                <stop offset="0%" stopColor="oklch(0.55 0.14 158)" />
-                <stop offset="100%" stopColor="oklch(0.5 0.15 235)" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M20 20 L 980 20"
-              stroke="url(#flow)"
-              strokeWidth="2"
-              strokeDasharray="6 6"
-              className="animate-flow-dash"
-              fill="none"
-            />
-          </svg>
-          <div className="grid gap-6 md:grid-cols-4 lg:grid-cols-7">
-            {steps.map((s, i) => (
-              <Reveal key={s.t} delay={i * 70}>
-                <div className="flex flex-col items-center text-center">
-                  <div className="relative">
-                    <span className="animate-pulse-ring grid h-12 w-12 place-items-center rounded-full bg-gradient-brand text-sm font-semibold text-white shadow-glow">
-                      {i + 1}
-                    </span>
+        <div className="relative mt-16 -mx-4 overflow-x-auto px-4 pb-2">
+          <div className="relative min-w-[1180px]">
+            <svg
+              className="pointer-events-none absolute left-0 right-0 top-6 h-10 w-full"
+              viewBox="0 0 1000 40"
+              preserveAspectRatio="none"
+            >
+              <defs>
+                <linearGradient id="flow" x1="0" x2="1">
+                  <stop offset="0%" stopColor="oklch(0.55 0.14 158)" />
+                  <stop offset="50%" stopColor="oklch(0.65 0.11 195)" />
+                  <stop offset="100%" stopColor="oklch(0.5 0.15 235)" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M20 20 L 980 20"
+                stroke="url(#flow)"
+                strokeWidth="2"
+                strokeDasharray="6 6"
+                className="animate-flow-dash"
+                fill="none"
+              />
+            </svg>
+            <div className="grid grid-cols-10 gap-3">
+              {steps.map((s, i) => (
+                <Reveal key={s.t} delay={i * 60}>
+                  <div className="flex flex-col items-center text-center">
+                    <div className="relative">
+                      <span
+                        className="animate-pulse-ring grid h-12 w-12 place-items-center rounded-full bg-gradient-brand text-white shadow-glow"
+                        style={{ animationDelay: `${i * 0.25}s` }}
+                      >
+                        <s.icon className="h-5 w-5" />
+                      </span>
+                    </div>
+                    <div className="mt-4 w-full rounded-2xl border border-border bg-card p-3 shadow-card-soft">
+                      <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-green">
+                        Paso {i + 1}
+                      </div>
+                      <div className="mt-1 text-sm font-semibold text-ink">{s.t}</div>
+                      <p className="mt-1 text-xs leading-relaxed text-ink-soft">{s.d}</p>
+                    </div>
                   </div>
-                  <div className="mt-4 rounded-2xl border border-border bg-card p-4 shadow-card-soft">
-                    <div className="text-sm font-semibold text-ink">{s.t}</div>
-                    <p className="mt-1 text-xs leading-relaxed text-ink-soft">{s.d}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -947,7 +965,7 @@ export function Architecture() {
         </Reveal>
         <Reveal delay={80}>
           <h2 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-ink md:text-5xl">
-            Construido sobre estándares abiertos.
+            Propuesto sobre estándares abiertos.
           </h2>
         </Reveal>
         <Reveal delay={140}>
@@ -1009,6 +1027,38 @@ export function Architecture() {
                   {t}
                 </span>
               ))}
+            </div>
+          </div>
+        </Reveal>
+
+        <Reveal delay={240}>
+          <div className="mt-6 rounded-3xl border border-border bg-card p-8 shadow-card-soft">
+            <div className="flex items-start gap-4">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-brand-green-soft text-brand-green">
+                <ShieldCheck className="h-5 w-5" />
+              </span>
+              <div>
+                <div className="text-xs font-medium uppercase tracking-[0.14em] text-brand-green">
+                  Seguridad y cumplimiento
+                </div>
+                <h3 className="mt-2 text-xl font-semibold text-ink">
+                  Pensado para manejar datos sensibles con responsabilidad.
+                </h3>
+                <ul className="mt-4 grid gap-2 sm:grid-cols-3">
+                  {[
+                    "Alineado a la Ley de Protección de Datos Personales (Ley 25.326)",
+                    "Datos alojados bajo criterios de soberanía provincial",
+                    "Auditoría y trazabilidad de accesos por rol",
+                  ].map((p) => (
+                    <li
+                      key={p}
+                      className="rounded-xl border border-border bg-white px-3 py-2 text-xs font-medium text-ink"
+                    >
+                      {p}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </Reveal>
@@ -1085,47 +1135,93 @@ export function Benefits() {
 /* ============================== ROADMAP ============================== */
 export function Roadmap() {
   const phases = [
-    { p: "Fase 1", t: "Incubadora", d: "Pipeline por etapas y red de mentores." },
-    { p: "Fase 2", t: "Registro", d: "Padrón único provincial con trazabilidad." },
-    { p: "Fase 3", t: "Subsidios", d: "Convocatorias, evaluación y rendición digital." },
-    { p: "Fase 4", t: "Observatorio", d: "Indicadores vivos y datos abiertos." },
-    { p: "Fase 5", t: "IA", d: "Asistente semántico y agentes especializados." },
+    {
+      p: "Fase 1",
+      t: "Incubadora",
+      d: "Pipeline por etapas y red de mentores.",
+      icon: Sprout,
+    },
+    {
+      p: "Fase 2",
+      t: "Registro",
+      d: "Padrón único provincial con trazabilidad.",
+      icon: ClipboardList,
+    },
+    {
+      p: "Fase 3",
+      t: "Subsidios",
+      d: "Convocatorias, evaluación y rendición digital.",
+      icon: Coins,
+    },
+    {
+      p: "Fase 4",
+      t: "Observatorio",
+      d: "Indicadores vivos y datos abiertos.",
+      icon: BarChart3,
+    },
+    {
+      p: "Fase 5",
+      t: "IA",
+      d: "Asistente semántico y agentes especializados.",
+      icon: Sparkles,
+    },
   ];
   return (
-    <section id="roadmap" className="relative py-28">
+    <section id="roadmap" className="relative overflow-hidden py-28">
+      <div className="pointer-events-none absolute inset-x-0 top-1/3 -z-10 h-[500px] bg-gradient-hero opacity-50" />
       <div className="mx-auto max-w-6xl px-4">
         <Reveal>
           <SectionEyebrow>Roadmap</SectionEyebrow>
         </Reveal>
         <Reveal delay={80}>
           <h2 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-ink md:text-5xl">
-            Un plan claro, entregable por entregable.
+            Cinco etapas, un mismo horizonte.
           </h2>
         </Reveal>
+        <Reveal delay={140}>
+          <p className="mt-5 max-w-2xl text-lg text-ink-soft">
+            Sin cronograma ni presupuesto cerrados todavía: este es el orden propuesto para
+            construir el ecosistema sin perder de vista el conjunto.
+          </p>
+        </Reveal>
+
         <div className="relative mt-16">
-          <div className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-border to-transparent lg:block" />
-          <div className="space-y-6">
+          <div
+            className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-[3px] -translate-x-1/2 opacity-40 lg:block"
+            style={{
+              backgroundImage:
+                "linear-gradient(180deg, var(--brand-green), var(--brand-teal), var(--brand-blue))",
+            }}
+          />
+          <div className="space-y-8">
             {phases.map((ph, i) => (
-              <Reveal key={ph.p} delay={i * 80}>
+              <Reveal key={ph.p} delay={i * 90}>
                 <div
                   className={`grid items-center gap-4 lg:grid-cols-2 ${
                     i % 2 ? "lg:[&>*:first-child]:col-start-2" : ""
                   }`}
                 >
-                  <div className="rounded-3xl border border-border bg-card p-6 shadow-card-soft">
-                    <div className="flex items-center justify-between">
-                      <div className="text-xs font-medium uppercase tracking-[0.14em] text-brand-green">
-                        {ph.p}
-                      </div>
-                      <span className="rounded-full bg-brand-green-soft px-2.5 py-0.5 text-[11px] font-medium text-brand-green">
-                        Planificada
+                  <div className="group relative overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-card-soft transition-all hover:-translate-y-1 hover:shadow-elevated">
+                    <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-brand-green-soft opacity-0 blur-3xl transition-opacity group-hover:opacity-70" />
+                    <div className="relative flex items-center gap-3">
+                      <span className="grid h-12 w-12 shrink-0 place-items-center rounded-xl bg-gradient-brand text-white shadow-glow">
+                        <ph.icon className="h-5 w-5" />
                       </span>
+                      <div>
+                        <div className="text-xs font-medium uppercase tracking-[0.14em] text-brand-green">
+                          {ph.p} · Etapa {i + 1} de {phases.length}
+                        </div>
+                        <div className="text-2xl font-semibold text-ink">{ph.t}</div>
+                      </div>
                     </div>
-                    <div className="mt-2 text-2xl font-semibold text-ink">{ph.t}</div>
-                    <p className="mt-2 text-sm text-ink-soft">{ph.d}</p>
+                    <p className="relative mt-3 text-sm text-ink-soft">{ph.d}</p>
                   </div>
                   <div className="hidden justify-center lg:flex">
-                    <span className="grid h-12 w-12 place-items-center rounded-full border border-border bg-white text-sm font-semibold text-ink shadow-card-soft">
+                    <span className="relative grid h-14 w-14 place-items-center rounded-full border border-border bg-white text-base font-semibold text-ink shadow-card-soft">
+                      <span
+                        className="animate-pulse-ring absolute inset-0 rounded-full"
+                        style={{ animationDelay: `${i * 0.4}s` }}
+                      />
                       {i + 1}
                     </span>
                   </div>
@@ -1150,29 +1246,15 @@ export function CTA() {
             <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-white/20 blur-3xl" />
             <div className="relative max-w-3xl">
               <div className="text-xs font-medium uppercase tracking-[0.16em] text-white/70">
-                Ministerio de Cooperativismo · Misiones
+                Propuesta · Ministerio de Cooperativismo · Misiones
               </div>
               <h2 className="mt-4 text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
                 Es hora de darle a las cooperativas la plataforma que merecen.
               </h2>
               <p className="mt-5 max-w-2xl text-lg text-white/85">
-                CoopMisiones está listo para ser presentado, iterado y desplegado con los equipos
-                del Ministerio y de los municipios.
+                Esta propuesta está lista para discutirse, ajustarse y construirse junto a los
+                equipos del Ministerio y de los municipios.
               </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a
-                  href="#plataforma"
-                  className="rounded-full bg-white px-6 py-3 text-sm font-semibold text-ink transition-transform hover:scale-[1.02]"
-                >
-                  Solicitar demo institucional
-                </a>
-                <a
-                  href="#modulos"
-                  className="rounded-full border border-white/30 bg-white/10 px-6 py-3 text-sm font-medium text-white backdrop-blur transition-colors hover:bg-white/20"
-                >
-                  Descargar dossier
-                </a>
-              </div>
             </div>
           </div>
         </Reveal>
@@ -1231,20 +1313,30 @@ export function Footer() {
           </div>
           <div>
             <div className="text-xs font-semibold uppercase tracking-[0.14em] text-ink-soft">
-              Contacto
+              Propuesta
             </div>
             <ul className="mt-3 space-y-1.5 text-sm text-ink">
-              <li>Posadas, Misiones · Argentina</li>
-              <li>coopmisiones@misiones.gob.ar</li>
+              <li>Paralelo Software Studio</li>
+              <li>
+                <a
+                  href="https://paralelo.tech"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-brand-green"
+                >
+                  paralelo.tech
+                </a>
+              </li>
             </ul>
           </div>
         </div>
         <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-border pt-6 md:flex-row">
           <div className="text-xs text-ink-soft">
-            © {new Date().getFullYear()} Ministerio de Cooperativismo · Provincia de Misiones.
+            © {new Date().getFullYear()} Propuesta de transformación digital para el cooperativismo
+            de Misiones.
           </div>
           <div className="text-xs text-ink-soft">
-            Diseñado como proyecto de transformación digital provincial.
+            Documento confidencial · Desarrollo exclusivo — Paralelo Software Studio.
           </div>
         </div>
       </div>
