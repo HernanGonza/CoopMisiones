@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import {
   Sprout,
   ClipboardList,
@@ -870,53 +870,55 @@ export function Flow() {
           </p>
         </Reveal>
 
-        <div className="relative mt-16 -mx-4 overflow-x-auto px-4 pb-2">
-          <div className="relative min-w-[1180px]">
-            <svg
-              className="pointer-events-none absolute left-0 right-0 top-6 h-10 w-full"
-              viewBox="0 0 1000 40"
-              preserveAspectRatio="none"
-            >
-              <defs>
-                <linearGradient id="flow" x1="0" x2="1">
-                  <stop offset="0%" stopColor="oklch(0.55 0.14 158)" />
-                  <stop offset="50%" stopColor="oklch(0.65 0.11 195)" />
-                  <stop offset="100%" stopColor="oklch(0.5 0.15 235)" />
-                </linearGradient>
-              </defs>
-              <path
-                d="M20 20 L 980 20"
-                stroke="url(#flow)"
-                strokeWidth="2"
-                strokeDasharray="6 6"
-                className="animate-flow-dash"
-                fill="none"
-              />
-            </svg>
-            <div className="grid grid-cols-10 gap-3">
-              {steps.map((s, i) => (
-                <Reveal key={s.t} delay={i * 60}>
-                  <div className="flex flex-col items-center text-center">
-                    <div className="relative">
-                      <span
-                        className="animate-pulse-ring grid h-12 w-12 place-items-center rounded-full bg-gradient-brand text-white shadow-glow"
-                        style={{ animationDelay: `${i * 0.25}s` }}
+        <div className="relative mt-16">
+          {[steps.slice(0, 5), steps.slice(5)].map((row, r) => (
+            <Fragment key={r}>
+              {r === 1 && (
+                <div className="flex justify-center py-2 text-brand-teal/50" aria-hidden="true">
+                  <ArrowRight className="h-5 w-5 rotate-90" />
+                </div>
+              )}
+              <div className="flex flex-wrap items-start gap-x-2 gap-y-8 sm:flex-nowrap sm:gap-3">
+                {row.map((s, idx) => {
+                  const i = r * 5 + idx;
+                  return (
+                    <Fragment key={s.t}>
+                      <Reveal
+                        delay={i * 60}
+                        className="flex w-[calc(50%-0.4rem)] flex-none flex-col sm:w-0 sm:flex-1"
                       >
-                        <s.icon className="h-5 w-5" />
-                      </span>
-                    </div>
-                    <div className="mt-4 w-full rounded-2xl border border-border bg-card p-3 shadow-card-soft">
-                      <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-green">
-                        Paso {i + 1}
-                      </div>
-                      <div className="mt-1 text-sm font-semibold text-ink">{s.t}</div>
-                      <p className="mt-1 text-xs leading-relaxed text-ink-soft">{s.d}</p>
-                    </div>
-                  </div>
-                </Reveal>
-              ))}
-            </div>
-          </div>
+                        <div className="flex flex-col items-center text-center">
+                          <div className="relative">
+                            <span
+                              className="animate-pulse-ring grid h-12 w-12 place-items-center rounded-full bg-gradient-brand text-white shadow-glow"
+                              style={{ animationDelay: `${i * 0.25}s` }}
+                            >
+                              <s.icon className="h-5 w-5" />
+                            </span>
+                          </div>
+                          <div className="mt-4 flex h-40 w-full shrink-0 flex-col rounded-2xl border border-border bg-card p-3 shadow-card-soft">
+                            <div className="text-[10px] font-semibold uppercase tracking-[0.12em] text-brand-green">
+                              Paso {i + 1}
+                            </div>
+                            <div className="mt-1 text-sm font-semibold text-ink">{s.t}</div>
+                            <p className="mt-1 text-xs leading-relaxed text-ink-soft">{s.d}</p>
+                          </div>
+                        </div>
+                      </Reveal>
+                      {idx < row.length - 1 && (
+                        <div
+                          className="hidden w-6 flex-none pt-4 text-brand-teal/40 sm:flex sm:justify-center"
+                          aria-hidden="true"
+                        >
+                          <ArrowRight className="h-4 w-4" />
+                        </div>
+                      )}
+                    </Fragment>
+                  );
+                })}
+              </div>
+            </Fragment>
+          ))}
         </div>
       </div>
     </section>
