@@ -16,6 +16,7 @@ import {
   Settings2,
   Sparkles,
   ArrowRight,
+  ExternalLink,
   CheckCircle2,
   Lightbulb,
   ScanSearch,
@@ -72,6 +73,15 @@ export function Hero() {
               className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-6 py-3 text-sm font-medium text-ink backdrop-blur transition-colors hover:bg-white"
             >
               Ver módulos
+            </a>
+            <a
+              href="https://portal.coopmisiones.paralelo.tech"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-6 py-3 text-sm font-medium text-ink backdrop-blur transition-colors hover:bg-white"
+            >
+              Ver maqueta en vivo
+              <ExternalLink className="h-4 w-4" />
             </a>
           </div>
         </Reveal>
