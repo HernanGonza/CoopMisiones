@@ -13,7 +13,6 @@ import {
   Gauge,
   UserCog,
   Settings2,
-  Sparkles,
   ScanSearch,
   Layers,
   Radar,
@@ -53,11 +52,7 @@ export const principles: { icon: LucideIcon; title: string; desc: string }[] = [
   },
   { icon: Zap, title: "Ágil", desc: "Trámites en minutos, no en meses." },
   { icon: Radar, title: "Transparente", desc: "Todo trazable, todo auditable." },
-  {
-    icon: Sparkles,
-    title: "Inteligente",
-    desc: "IA que asiste al funcionario y al ciudadano.",
-  },
+  { icon: Layers, title: "Abierto", desc: "Estándares abiertos y datos exportables." },
 ];
 
 export const visionTags = [
@@ -79,7 +74,6 @@ export const ecoNodes: { id: string; label: string; icon: LucideIcon }[] = [
   { id: "municipios", label: "Municipios", icon: Building2 },
   { id: "mapa", label: "Mapa Cooperativo", icon: Map },
   { id: "observatorio", label: "Observatorio", icon: BarChart3 },
-  { id: "ia", label: "Inteligencia Artificial", icon: Sparkles },
 ];
 
 export const ecoDetails: Record<string, { title: string; desc: string; points: string[] }> = {
@@ -173,15 +167,6 @@ export const ecoDetails: Record<string, { title: string; desc: string; points: s
       "Datos abiertos para investigadores y ciudadanos",
     ],
   },
-  ia: {
-    title: "Inteligencia Artificial",
-    desc: "Lee de todos los módulos a la vez para resumir, alertar y sugerir antes de que alguien tenga que pedirlo.",
-    points: [
-      "Detecta expedientes trabados en cualquier módulo",
-      "Sugiere mentores, cursos y convocatorias",
-      "Responde en el Portal con contexto real",
-    ],
-  },
 };
 
 export const modules: {
@@ -243,8 +228,8 @@ export const modules: {
   {
     icon: FileText,
     name: "Gestión Documental",
-    desc: "Repositorio único, versionado y buscable con IA.",
-    benefits: ["Versionado", "Búsqueda semántica", "Permisos finos"],
+    desc: "Repositorio único, versionado y con búsqueda por contenido.",
+    benefits: ["Versionado", "Búsqueda por contenido", "Permisos finos"],
     v: 0,
   },
   {
@@ -289,29 +274,9 @@ export const modules: {
     benefits: ["Parametrización", "Workflows visuales", "Integraciones"],
     v: 4,
   },
-  {
-    icon: Sparkles,
-    name: "Inteligencia Artificial",
-    desc: "Asistente que orienta, resume y sugiere para todos los actores.",
-    benefits: ["Búsqueda semántica", "Resúmenes", "Sugerencias"],
-    v: 5,
-  },
 ];
 
-export const iaMessages = [
-  { role: "user", text: "Quiero crear una cooperativa apícola en San Pedro." },
-  {
-    role: "ia",
-    text: "Perfecto. Detecté 3 cooperativas apícolas cercanas y una convocatoria activa. Te preparé una ruta de 4 pasos y la documentación mínima requerida.",
-  },
-  { role: "user", text: "Resumime el expediente 2026-04-1187." },
-  {
-    role: "ia",
-    text: "Se trata de una solicitud de subsidio por $ 4,8 M para maquinaria yerbatera. Falta el balance 2025 y la constancia AFIP. Está a 2 firmas de ser aprobado.",
-  },
-];
-
-export const iaCapabilities: { icon: LucideIcon; title: string; desc: string }[] = [
+export const iaAddon: { icon: LucideIcon; title: string; desc: string }[] = [
   {
     icon: ScanSearch,
     title: "Detecta documentación faltante",
@@ -357,9 +322,9 @@ export const layers = [
     tech: ["PostGIS", "MapLibre", "Leaflet"],
   },
   {
-    title: "IA",
-    desc: "Búsqueda semántica, resúmenes y agentes.",
-    tech: ["LLM autoalojado", "pgvector", "N8N"],
+    title: "Seguridad",
+    desc: "Roles, auditoría y trazabilidad de accesos.",
+    tech: ["RBAC", "Auditoría", "SSO provincial"],
   },
   {
     title: "Integraciones",
@@ -378,7 +343,6 @@ export const stack = [
   "Docker",
   "Temporal",
   "N8N",
-  "LLM autoalojado",
   "Leaflet",
   "MapLibre",
   "Cloudflare",
@@ -418,14 +382,13 @@ export const phases: { icon: LucideIcon; title: string; desc: string }[] = [
   { icon: ClipboardList, title: "Registro", desc: "Padrón único provincial con trazabilidad." },
   { icon: Coins, title: "Subsidios", desc: "Convocatorias, evaluación y rendición digital." },
   { icon: BarChart3, title: "Observatorio", desc: "Indicadores vivos y datos abiertos." },
-  { icon: Sparkles, title: "IA", desc: "Asistente semántico y agentes especializados." },
 ];
 
 export const stats: [string, string][] = [
   ["79", "Municipios de la provincia"],
-  ["11", "Piezas del ecosistema"],
-  ["15", "Módulos propuestos"],
-  ["5", "Fases de implementación"],
+  ["10", "Piezas del ecosistema"],
+  ["14", "Módulos propuestos"],
+  ["4", "Fases de implementación"],
 ];
 
 export const mapBullets = [

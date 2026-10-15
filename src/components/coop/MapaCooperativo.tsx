@@ -279,7 +279,7 @@ export function MapaCooperativo() {
       </div>
       <div className="map-stage">
         <svg
-          viewBox="0 0 560 480"
+          viewBox="28 8 436 462"
           role="group"
           aria-label="Mapa cooperativo de la provincia de Misiones"
         >
@@ -358,18 +358,6 @@ export function MapaCooperativo() {
               );
             })}
           </g>
-          <g transform="translate(396,418)">
-            <text y="0" fontSize="11" fontWeight="700" fill="oklch(0.25 0.03 130)">
-              Densidad cooperativa
-            </text>
-            <rect y="8" width="150" height="8" rx="4" fill="url(#lg-scale)" />
-            <text y="30" fontSize="9" fill="oklch(0.5 0.02 130)">
-              Menor
-            </text>
-            <text x="150" y="30" textAnchor="end" fontSize="9" fill="oklch(0.5 0.02 130)">
-              Mayor
-            </text>
-          </g>
         </svg>
         <aside className="map-panel" aria-live="polite">
           <div className="phase-label">Localidad seleccionada</div>
@@ -396,6 +384,11 @@ export function MapaCooperativo() {
           ) : (
             <p className="form-note">Sin cooperativas de {sector} en esta localidad.</p>
           )}
+          <div className="map-legend" aria-hidden="true">
+            <span>Menor densidad</span>
+            <i />
+            <span>Mayor</span>
+          </div>
           <p className="map-disclaimer">Datos ilustrativos</p>
         </aside>
       </div>

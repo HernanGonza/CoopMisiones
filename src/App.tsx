@@ -6,13 +6,11 @@ import {
   FileCheck2,
   Globe,
   Info,
-  Lightbulb,
   Mail,
   MapPin,
   Menu,
   Play,
   ShieldCheck,
-  Sparkles,
   X,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -23,8 +21,7 @@ import {
   ecoDetails,
   ecoNodes,
   flowSteps,
-  iaCapabilities,
-  iaMessages,
+  iaAddon,
   layers,
   mapBullets,
   modules,
@@ -298,7 +295,7 @@ export default function App() {
               eyebrow="03 / El ecosistema"
               aside="Cada componente resuelve una necesidad concreta, pero todos comparten un mismo modelo de datos, una misma identidad y una misma capa de seguridad."
             >
-              Once piezas.
+              Diez piezas.
               <br />
               <em>Un mismo lenguaje.</em>
             </Heading>
@@ -311,7 +308,7 @@ export default function App() {
         <section className="section section-solution" id="modulos">
           <div className="site-container">
             <Heading
-              eyebrow="04 / Los 15 módulos"
+              eyebrow="04 / Los 14 módulos"
               aside="Cada módulo es un producto en sí mismo, diseñado con los mismos principios de claridad, trazabilidad y velocidad."
             >
               Todo lo que necesita el cooperativismo,
@@ -407,61 +404,10 @@ export default function App() {
           </div>
         </section>
 
-        <section className="section" id="ia">
-          <div className="site-container">
-            <div className="split">
-              <div>
-                <div className="eyebrow">07 / Inteligencia Artificial</div>
-                <h2>
-                  Un asistente que <em>entiende de cooperativismo.</em>
-                </h2>
-                <p className="section-description">
-                  No es un chatbot genérico: la propuesta es entrenarlo sobre la normativa
-                  provincial, el padrón cooperativo y la biblioteca del Ministerio, para asistir a
-                  ciudadanos y funcionarios por igual.
-                </p>
-                <ul className="check-list">
-                  {iaCapabilities.map((c) => (
-                    <li key={c.title}>
-                      <c.icon aria-hidden="true" />
-                      <span>
-                        <b>{c.title}.</b> {c.desc}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="grid-frame alt">
-                <div className="chat">
-                  <div className="chat-head">
-                    <div>
-                      <b>Asistente CoopMisiones</b>
-                      <small>Conversación de ejemplo</small>
-                    </div>
-                    <span className="status-chip">
-                      <Sparkles size={14} aria-hidden="true" /> IA provincial
-                    </span>
-                  </div>
-                  <div className="chat-msgs">
-                    {iaMessages.map((m, i) => (
-                      <p key={i} className={`bubble ${m.role === "user" ? "user" : ""}`}>
-                        {m.text}
-                      </p>
-                    ))}
-                  </div>
-                  <div className="chat-input" aria-hidden="true">
-                    <Lightbulb size={18} /> Preguntale al asistente…
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section className="section section-solution" id="recorrido">
           <div className="site-container">
             <Heading
-              eyebrow="08 / El recorrido completo"
+              eyebrow="07 / El recorrido completo"
               aside="Diez pasos dentro de la plataforma, cada uno resuelto por un módulo distinto. Nada se pierde, todo se puede medir."
             >
               De una idea a una
@@ -485,7 +431,7 @@ export default function App() {
         <section className="section" id="arquitectura">
           <div className="site-container">
             <Heading
-              eyebrow="09 / Arquitectura"
+              eyebrow="08 / Arquitectura"
               aside="Cada capa está diseñada para escalar con la provincia y para conversar con los sistemas nacionales existentes."
             >
               Propuesto sobre
@@ -534,7 +480,7 @@ export default function App() {
 
         <section className="section benefits-band" id="beneficios">
           <div className="site-container">
-            <div className="eyebrow">10 / Beneficios</div>
+            <div className="eyebrow">09 / Beneficios</div>
             <h2>
               Un solo proyecto, <em>cuatro impactos.</em>
             </h2>
@@ -562,10 +508,10 @@ export default function App() {
         <section className="section" id="roadmap">
           <div className="site-container">
             <Heading
-              eyebrow="11 / Roadmap"
+              eyebrow="10 / Roadmap"
               aside="Sin cronograma ni presupuesto cerrados todavía: este es el orden propuesto para construir el ecosistema sin perder de vista el conjunto."
             >
-              Cinco etapas.
+              Cuatro etapas.
               <br />
               <em>Un mismo horizonte.</em>
             </Heading>
@@ -583,6 +529,42 @@ export default function App() {
                     <p>{p.desc}</p>
                   </article>
                 ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section section-solution" id="agregado">
+          <div className="site-container">
+            <div className="split">
+              <div>
+                <div className="eyebrow">11 / Agregado opcional</div>
+                <h2>
+                  Un asistente de IA, <em>si más adelante lo necesitan.</em>
+                </h2>
+                <p className="section-description">
+                  No forma parte de esta propuesta ni de su presupuesto. La plataforma queda lista
+                  para sumarlo en una etapa posterior, y se evalúa y cotiza por separado porque
+                  implica costos de infraestructura y de consumo.
+                </p>
+                <ul className="tag-list">
+                  <li>No incluido en la propuesta base</li>
+                </ul>
+              </div>
+              <div className="grid-frame alt">
+                <article className="feature-card">
+                  <div className="phase-label">Qué podría hacer</div>
+                  <ul className="check-list">
+                    {iaAddon.map((c) => (
+                      <li key={c.title}>
+                        <c.icon aria-hidden="true" />
+                        <span>
+                          <b>{c.title}.</b> {c.desc}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </article>
               </div>
             </div>
           </div>
