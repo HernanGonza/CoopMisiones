@@ -34,7 +34,7 @@ import {
   stats,
   visionTags,
 } from "@/components/coop/data";
-import { MapaCooperativo } from "@/components/coop/MapaCooperativo";
+import { MapaCooperativo, MiniMapaMisiones } from "@/components/coop/MapaCooperativo";
 import markUrl from "@/assets/tacuara-mark-bn-96.webp";
 
 const SITE_URL = "https://www.tacuara.com.ar";
@@ -102,7 +102,7 @@ function Ecosystem() {
           ))}
         </ul>
         <div className="mockup-frame">
-          <MiniMockup variant={variant} />
+          {active === "mapa" ? <MiniMapaMisiones /> : <MiniMockup variant={variant} />}
         </div>
       </div>
     </div>
@@ -320,7 +320,11 @@ export default function App() {
                 {modules.map((m) => (
                   <article className="feature-card module-card" key={m.name}>
                     <div className="module-thumb">
-                      <MiniMockup variant={m.v} />
+                      {m.name === "Mapa Cooperativo" ? (
+                        <MiniMapaMisiones />
+                      ) : (
+                        <MiniMockup variant={m.v} />
+                      )}
                     </div>
                     <div className="module-body">
                       <div className="module-head">

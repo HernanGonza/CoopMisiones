@@ -395,3 +395,55 @@ export function MapaCooperativo() {
     </div>
   );
 }
+
+/** Versión estática y reducida del mapa, para la tarjeta del módulo. */
+export function MiniMapaMisiones() {
+  return (
+    <svg viewBox="-6 -6 361 452" role="img" aria-label="Mapa de la provincia de Misiones">
+      <defs>
+        <clipPath id="misiones-mini-clip">
+          <path d={MISIONES_PATH} />
+        </clipPath>
+      </defs>
+      <path d={MISIONES_PATH} fill="white" />
+      <g clipPath="url(#misiones-mini-clip)">
+        {[
+          [-55.9, -27.4, 90],
+          [-55.1, -27.5, 100],
+          [-54.62, -26.4, 95],
+        ].map(([lng, lat, r]) => {
+          const [x, y] = projectMisiones(lng!, lat!);
+          return (
+            <circle
+              key={`${lng}${lat}`}
+              cx={x}
+              cy={y}
+              r={r}
+              fill="oklch(0.78 0.17 130)"
+              opacity="0.35"
+            />
+          );
+        })}
+      </g>
+      <path
+        d={MISIONES_PATH}
+        fill="none"
+        stroke="oklch(0.386 0.107 135.9)"
+        strokeWidth="4"
+        strokeLinejoin="round"
+      />
+      {TOWNS.map((t) => {
+        const [x, y] = projectMisiones(t.lng, t.lat);
+        return (
+          <circle
+            key={t.name}
+            cx={x}
+            cy={y}
+            r={7 + (t.total / MAX_TOTAL) * 14}
+            fill="oklch(0.386 0.107 135.9)"
+          />
+        );
+      })}
+    </svg>
+  );
+}

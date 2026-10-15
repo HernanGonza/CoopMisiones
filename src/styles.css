@@ -1318,13 +1318,16 @@
 .module-thumb {
   background: var(--muted);
   border-bottom: 1px dashed var(--border);
-  padding: 16px;
+  position: relative;
   aspect-ratio: 16/9;
+  overflow: hidden;
 }
 .module-thumb svg {
+  position: absolute;
+  inset: 16px;
   display: block;
-  width: 100%;
-  height: 100%;
+  width: calc(100% - 32px);
+  height: calc(100% - 32px);
 }
 .module-body {
   padding: 24px;
