@@ -17,12 +17,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ContactDialog from "@/components/ContactDialog";
-import {
-  DashboardMockup,
-  MapMockup,
-  MiniMockup,
-  ObservatorioMockup,
-} from "@/components/coop/Mockups";
+import { DashboardMockup, MiniMockup, ObservatorioMockup } from "@/components/coop/Mockups";
 import {
   benefitGroups,
   ecoDetails,
@@ -42,6 +37,7 @@ import {
   stats,
   visionTags,
 } from "@/components/coop/data";
+import { MapaCooperativo } from "@/components/coop/MapaCooperativo";
 import markUrl from "@/assets/tacuara-mark-bn-96.webp";
 
 const SITE_URL = "https://www.tacuara.com.ar";
@@ -375,9 +371,7 @@ export default function App() {
                 </ul>
               </div>
               <div className="grid-frame alt">
-                <div className="mockup-frame">
-                  <MapMockup />
-                </div>
+                <MapaCooperativo />
               </div>
             </div>
           </div>

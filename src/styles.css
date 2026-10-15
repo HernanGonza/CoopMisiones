@@ -1638,3 +1638,164 @@
   color: var(--secondary-foreground);
   white-space: nowrap;
 }
+
+/* Mapa cooperativo interactivo */
+.map-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+.map-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 12px 14px;
+  border-bottom: 1px dashed var(--border);
+  background: var(--secondary);
+}
+.map-filters button {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  min-height: 36px;
+  padding: 0 12px;
+  border-radius: 4px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--secondary-foreground);
+  transition:
+    background-color 0.2s,
+    color 0.2s;
+}
+.map-filters button:hover {
+  border-color: color-mix(in oklab, var(--primary) 45%, transparent);
+}
+.map-filters button[aria-pressed="true"] {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-color: var(--primary);
+}
+.map-stage {
+  background: linear-gradient(135deg, var(--background), var(--secondary));
+}
+.map-stage > svg {
+  display: block;
+  width: 100%;
+  max-height: 520px;
+  height: auto;
+}
+.map-point {
+  cursor: pointer;
+  outline: none;
+  transition: opacity 0.2s;
+}
+.map-point .dot {
+  fill: var(--primary);
+}
+.map-point .halo {
+  fill: var(--primary);
+  opacity: 0.18;
+}
+.map-point[data-active="true"] .dot {
+  fill: var(--earth);
+}
+.map-point[data-dim="true"] {
+  opacity: 0.2;
+}
+.map-point:hover .halo,
+.map-point:focus-visible .halo {
+  opacity: 0.35;
+}
+.map-point:focus-visible .dot {
+  stroke: var(--ring);
+  stroke-width: 3px;
+}
+.map-point text {
+  font-size: 11px;
+  font-weight: 700;
+  fill: var(--foreground);
+  pointer-events: none;
+  paint-order: stroke;
+  stroke: var(--background);
+  stroke-width: 3px;
+}
+.map-panel {
+  background: var(--card);
+  border-top: 1px dashed var(--border);
+  padding: 20px 22px;
+}
+.map-panel h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-top: 2px;
+}
+.map-summary {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+  margin-top: 4px;
+}
+.map-bar {
+  height: 6px;
+  background: var(--secondary);
+  border-radius: 3px;
+  margin-block: 12px;
+  overflow: hidden;
+}
+.map-bar span {
+  display: block;
+  height: 100%;
+  background: var(--primary);
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+.map-coops {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px 18px;
+}
+.map-coops li {
+  display: grid;
+  gap: 2px;
+  border-top: 1px dashed var(--border);
+  padding-top: 10px;
+  font-size: 0.84rem;
+  line-height: 1.35;
+}
+.map-coops li span {
+  color: var(--muted-foreground);
+}
+.map-coops em {
+  font-style: normal;
+  justify-self: start;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+}
+.map-coops em[data-estado="En incubación"] {
+  background: var(--earth-soft);
+  color: var(--earth);
+}
+.map-coops em[data-estado="Formalizando"] {
+  background: color-mix(in oklab, var(--accent) 28%, var(--card));
+  color: var(--foreground);
+}
+.map-disclaimer {
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted-foreground);
+}
