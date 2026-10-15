@@ -1,12 +1,5 @@
-<!-- LOVABLE:BEGIN -->
-
-> [!IMPORTANT]
-> This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
-> published git history — force pushing, or rebasing/amending/squashing commits
-> that are already pushed — as it rewrites history on Lovable's side and the
-> user will likely lose their project history.
->
-> Commits you push to the connected branch sync back to Lovable and show up in
-> the editor, so keep the branch in a working state.
-
-<!-- LOVABLE:END -->
+- This is a client-side Vite + React SPA deployed on Vercel (see vercel.json). There is no SSR; the only server code is the serverless function in api/contact.ts.
+- Keep the commercial proposal in src/App.tsx with anchor navigation, because its sections form one presentation.
+- Keep section content (arrays of copy) in src/components/coop/data.ts and the SVG mockups in src/components/coop/Mockups.tsx, because copy must be editable without touching layout.
+- Define presentation styles and semantic colors in src/styles.css (Tacuara brand palette) and button variants in the shared Button, because the proposal needs a consistent visual system.
+- The system mock lives in a separate repo; this repo is only the proposal page.
